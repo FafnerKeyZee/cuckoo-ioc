@@ -506,8 +506,7 @@ class File(object):
             if not is_whitelisted_domain(url[1]):
 		if not is_whitelisted_url("".join(url)):
                     urls.add("".join(url))
-		    print url
-        
+
         return list(urls)
 
     def get_all(self):
