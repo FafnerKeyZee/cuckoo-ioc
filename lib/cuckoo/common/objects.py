@@ -493,9 +493,6 @@ class File(object):
         m = mmap.mmap(f.fileno(), 0, access=mmap.PROT_READ)
 
         for url in re.findall(URL_REGEX, m):
-            if not is_whitelisted_domain(url[1]):
-                urls.add("".join(url))
-        for url in re.findall(URL_REGEX, m):
 	    url = list(url)
 	    if not url[2] :
 		m = re.match(IP_REGEX,url[1])
@@ -509,6 +506,7 @@ class File(object):
             if not is_whitelisted_domain(url[1]):
 		if not is_whitelisted_url("".join(url)):
                     urls.add("".join(url))
+		    print url
         
         return list(urls)
 
