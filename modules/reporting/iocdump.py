@@ -4,7 +4,6 @@ import codecs
 import calendar
 import datetime
 
-from hashlib import sha256
 import ntpath
 import whois
 
