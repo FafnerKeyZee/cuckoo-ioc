@@ -5,6 +5,7 @@ Creates a small report with iocs.
 Access via rest api : http://yourinstall/ioc/get/NUMBER
 
 Requires python-whois
+
 For dns signature: pip install dns.resolver
 
 Results:
