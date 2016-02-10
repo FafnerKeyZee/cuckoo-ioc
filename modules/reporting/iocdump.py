@@ -41,9 +41,11 @@ class IocDump(Report):
         ips = set()
         noturi = set()
 
-        for domain in open(os.path.join(CUCKOO_ROOT, "data", "whitelist", "domain.txt")):
+        for domain in open(os.path.join(CUCKOO_ROOT, "data", "whitelist", 
+                  "domain.txt")):
             domains.add(domain.strip())
-        for ip in open(os.path.join(CUCKOO_ROOT, "data", "whitelist", "ip.txt")):
+        for ip in open(os.path.join(CUCKOO_ROOT, "data", "whitelist", 
+                  "ip.txt")):
             ips.add(ip.strip())
             noturi.add("http://"+ip.strip())
         # End of creation
@@ -55,8 +57,10 @@ class IocDump(Report):
             for field in ("md5", "sha1", "sha256", "sha512"):
                 if field in f:
                     tags[field] = f[field]
-                    tags["virustotal"] = results.get("virustotal", {}).get("normalized", [])
-                tags["virustotalurl"] = "https://www.virustotal.com/en/file/"+f["sha256"]+"/analysis/"
+                    tags["virustotal"] = results.get("virustotal", 
+                              {}).get("normalized", [])
+                tags["virustotalurl"] = "https://www.virustotal.com/en/file/"
+                tags["virustotalurl"] += f["sha256"]+"/analysis/"
                 response["Analysis"]=tags
 
         data = dict(results)
